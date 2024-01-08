@@ -15,10 +15,11 @@ import (
 
 	"github.com/getlantern/systray"
 	icon "github.com/linexjlin/systray-icons/dynamic/ball-triangle"
+	keyboardIcon "github.com/linexjlin/systray-icons/enter-the-keyboard"
 )
 
 func main() {
-	systray.Run(onReady, onExit)
+	systray.Run(onReady, nil)
 }
 
 func dynamicicon() {
@@ -34,6 +35,7 @@ func dynamicicon() {
 }
 
 func onReady() {
+	systray.SetIcon(keyboardIcon.Data)
 	go dynamicicon()
 	systray.SetTitle("Awesome App")
 	systray.SetTooltip("Pretty awesome超级棒")
